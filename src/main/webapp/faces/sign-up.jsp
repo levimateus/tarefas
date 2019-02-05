@@ -10,7 +10,7 @@
 					<input type="text" name="name" id="name" class="form-control" required="required">
 				</div>
 				<div class="form-group">
-					<label for="email">E-Mail </label>
+					<label for="email">E-mail </label>
 					<input type="email" name="email" id="email" class="form-control" required="required">
 				</div>
 				<div class="form-group">
@@ -19,6 +19,7 @@
 				</div>
 				<div class="form-group">
 					<input type="submit" value="Cadastrar" class="btn btn-success">
+					<a href="login.jsp" class="btn btn-primary">Voltar</a>
 				</div>
 			</div>
 		</form>

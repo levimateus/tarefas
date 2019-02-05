@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class User implements Serializable{
@@ -17,15 +21,20 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@NotNull
 	private String name;
 	
+	@NotNull
 	private String login;
 	
+	@NotNull
 	private String password;
 	
+	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
 	private Calendar creationDate;
 	
+	@UpdateTimestamp
 	@Temporal(TemporalType.DATE)
 	private Calendar alterationDate;
 
