@@ -42,7 +42,7 @@ public class Login extends HttpServlet{
 				
 				response.sendRedirect(request.getContextPath() + "/");
 			} else {
-				System.out.println("Email ou senha inválidos");
+				response.sendRedirect(request.getContextPath() + "/login.jsp?error=true");
 			}
 			
 		} catch (NoSuchAlgorithmException e) {

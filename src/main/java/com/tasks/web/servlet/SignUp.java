@@ -36,10 +36,8 @@ public class SignUp extends HttpServlet{
 			user.setPassword(password);
 			
 			user = dao.save(user);
-			System.out.println("Inseriu o usuário " + user.getId());
-			
 		} catch (NoSuchAlgorithmException e) {
 			throw new RuntimeException(e);
-		}		
+		}
 	}
 }

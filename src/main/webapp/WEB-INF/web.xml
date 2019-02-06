@@ -2,10 +2,19 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
  <filter>
+  <display-name>BootstrapFilter</display-name>
+  <filter-name>BootstrapFilter</filter-name>
+  <filter-class>com.tasks.web.filter.BootstrapFilter</filter-class>
+ </filter>
+ <filter>
   <display-name>AuthenticationFilter</display-name>
   <filter-name>AuthenticationFilter</filter-name>
   <filter-class>com.tasks.web.filter.AuthenticationFilter</filter-class>
  </filter>
+ <filter-mapping>
+  <filter-name>BootstrapFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+ </filter-mapping>
  <filter-mapping>
   <filter-name>AuthenticationFilter</filter-name>
   <url-pattern>/*</url-pattern>
