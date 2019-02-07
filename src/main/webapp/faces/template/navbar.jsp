@@ -12,9 +12,9 @@
 
 	<div class="collapse navbar-collapse" id="navContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item"><a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Tarefas</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Usuários</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Hoje<span class="sr-only">(current)</span></a></li>
+			<li class="nav-item"><a class="nav-link" href="#">Lista de tarefas</a></li>
+			<li class="nav-item float-right"><a class="nav-link" href="logout.jsp">Sair</a></li>
 		</ul>
 	</div>
 </nav>

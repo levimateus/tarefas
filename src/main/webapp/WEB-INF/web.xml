@@ -31,6 +31,16 @@
   <servlet-name>Logout</servlet-name>
   <servlet-class>com.tasks.web.servlet.Logout</servlet-class>
  </servlet>
+ <servlet>
+  <display-name>Today</display-name>
+  <servlet-name>Today</servlet-name>
+  <servlet-class>com.tasks.web.servlet.Today</servlet-class>
+ </servlet>
+ <servlet>
+  <display-name>EditTask</display-name>
+  <servlet-name>EditTask</servlet-name>
+  <servlet-class>com.tasks.web.servlet.EditTask</servlet-class>
+ </servlet>
  <servlet-mapping>
   <servlet-name>SignUp</servlet-name>
   <url-pattern>/sign-up.jsp</url-pattern>
@@ -42,6 +52,14 @@
  <servlet-mapping>
   <servlet-name>Logout</servlet-name>
   <url-pattern>/logout.jsp</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>Today</servlet-name>
+  <url-pattern>/</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>EditTask</servlet-name>
+  <url-pattern>/edit-task.jsp</url-pattern>
  </servlet-mapping>
  <session-config>
   <session-timeout>30</session-timeout>
