@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<jsp:useBean id="dao" class="com.tasks.model.dao.TaskDAO"  />
+
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -7,13 +10,13 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form action="edit-task.jsp" method="POST">
+			<form action="create-task.jsp" method="POST">
 				<input type="hidden" name="id_task" value="">
 			
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="title">Título da tarefa</label>
-						<input type="text" name="title" id="title" class="form-control" placeholder="Insere o título">
+						<input type="text" name="title" id="title" class="form-control" placeholder="Insere o título" required="required">
 						<small class="text-small text-danger">O título é um campo obrigatório</small>
 					</div>
 					<div class="form-group">
@@ -22,7 +25,7 @@
 					</div>
 					<div class="form-group">
 						<label for="task_date">Data da tarefa</label>
-						<input type="text" name="task_date" id="task_date" class="form-control" placeholder="dd/mm/aaaa">
+						<input type="text" name="task_date" id="task_date" class="date_input form-control" placeholder="dd/mm/aaaa">
 					</div>
 				</div>
 				<div class="modal-footer">

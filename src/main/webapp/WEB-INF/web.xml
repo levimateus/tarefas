@@ -38,8 +38,8 @@
  </servlet>
  <servlet>
   <display-name>EditTask</display-name>
-  <servlet-name>EditTask</servlet-name>
-  <servlet-class>com.tasks.web.servlet.EditTask</servlet-class>
+  <servlet-name>CreateTask</servlet-name>
+  <servlet-class>com.tasks.web.servlet.CreateTask</servlet-class>
  </servlet>
  <servlet-mapping>
   <servlet-name>SignUp</servlet-name>
@@ -58,8 +58,12 @@
   <url-pattern>/</url-pattern>
  </servlet-mapping>
  <servlet-mapping>
-  <servlet-name>EditTask</servlet-name>
-  <url-pattern>/edit-task.jsp</url-pattern>
+  <servlet-name>CreateTask</servlet-name>
+  <url-pattern>/create-task.jsp</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>Today</servlet-name>
+  <url-pattern>/today.jsp</url-pattern>
  </servlet-mapping>
  <session-config>
   <session-timeout>30</session-timeout>

@@ -1,5 +1,7 @@
 package com.tasks.model.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -22,7 +24,7 @@ public class TaskDAO {
 		return task;
 	}
 	
-	public Task find(Task task) {
+	public Task getTask(Task task) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tasks");
 		EntityManager manager = factory.createEntityManager();
 		
@@ -34,6 +36,15 @@ public class TaskDAO {
 		factory.close();
 		
 		return task;
+	}
+	
+	public List<Task> getList(){
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tasks");
+		EntityManager manager = factory.createEntityManager();
+		
+		List<Task> tasks = manager.createQuery("select t from Task as t").getResultList();
+		
+		return tasks;
 	}
 	
 	public Task update(Task task) {
