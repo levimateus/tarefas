@@ -12,8 +12,8 @@
 
 	<div class="collapse navbar-collapse" id="navContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item"><a class="nav-link" href="#">Hoje<span class="sr-only">(current)</span></a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Lista de tarefas</a></li>
+			<li class="nav-item"><a class="nav-link" href="today.jsp">Hoje<span class="sr-only">(current)</span></a></li>
+			<li class="nav-item"><a class="nav-link" href="tasks.jsp">Lista de tarefas</a></li>
 			<li class="nav-item float-right"><a class="nav-link" href="logout.jsp">Sair</a></li>
 		</ul>
 	</div>

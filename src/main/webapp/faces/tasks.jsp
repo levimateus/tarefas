@@ -74,7 +74,7 @@
 		
 		<div class="list-group my-2 col col-xl-9 col-lg-8 col-md-8">
 			<h4 class="list-group-item text-center">Tarefas de hoje:</h4>
-			<c:forEach var="task" items="${dao.getListToday(user)}">
+			<c:forEach var="task" items="${dao.getListByUser(user)}">
 				<a class="list-group-item list-group-item-action"
 				   href="#collapse-task-${task.id}"
 				   data-toggle="collapse"

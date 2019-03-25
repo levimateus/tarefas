@@ -1,5 +1,7 @@
 package com.tasks.web.servlet;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.servlet.http.HttpServlet;
@@ -19,11 +21,19 @@ public class CreateTask extends HttpServlet{
 		
 		String title = request.getParameter("title");
 		String description = request.getParameter("description");
+		String task_date = request.getParameter("task_date");
 		
-		try {
+		try {		
+			if(!task_date.matches("/[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}/")) {
+				response.sendRedirect("today.jsp");
+			}
+			
 			TaskDAO dao = new TaskDAO();
 			Task task = new Task();
+			
+			DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 			Calendar taskDate = Calendar.getInstance();
+			taskDate.setTime(format.parse(task_date));
 			
 			task.setUser(user);
 			task.setTitle(title);
