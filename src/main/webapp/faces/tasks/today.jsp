@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <jsp:useBean id="dao" class="com.tasks.model.dao.TaskDAO"  />
 
 <jsp:include page="/faces/template/header.jsp" />
@@ -74,16 +76,19 @@
 		
 		<div class="list-group my-2 col col-xl-9 col-lg-8 col-md-8">
 			<h4 class="list-group-item text-center">Tarefas de hoje:</h4>
-			<c:forEach var="task" items="${dao.getListByUser(user)}">
+			<c:forEach var="task" items="${dao.getListToday(user)}">
 				<a class="list-group-item list-group-item-action"
 				   href="#collapse-task-${task.id}"
 				   data-toggle="collapse"
 				   role="button"
 				   >
-				   <span class="badge badge-success">Entregue</span>&nbsp${task.title}
+				   <span class="badge badge-success">Entregue</span>
+				   <span class="badge badge-secondary"><fmt:formatDate type="date" value="${task.taskDate.time}" pattern="dd/MM/yyyy" /></span>
+				   &nbsp${task.title}
 				</a>
 				<div class="collapse list-group-item" style="background-color: #eaeaea" id="collapse-task-${task.id}">
 					${task.description}
+					<a href="delete-task.jsp?id=${task.id}" class="btn btn-danger btn-sm">Excluir</a>
 				</div>
 			</c:forEach>
 			
@@ -93,6 +98,6 @@
 </div>
 
 <!-- Page creation modal -->
-<jsp:include page="/faces/create-task.jsp" />
+<jsp:include page="/faces/tasks/create-task.jsp" />
 
 <jsp:include page="/faces/template/footer.jsp" />

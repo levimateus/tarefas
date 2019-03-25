@@ -24,9 +24,9 @@ public class CreateTask extends HttpServlet{
 		String task_date = request.getParameter("task_date");
 		
 		try {		
-			if(!task_date.matches("/[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}/")) {
-				response.sendRedirect("today.jsp");
-			}
+//			if(!task_date.matches("/[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}/")) {
+//				response.sendRedirect("today.jsp");
+//			}
 			
 			TaskDAO dao = new TaskDAO();
 			Task task = new Task();

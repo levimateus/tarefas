@@ -14,6 +14,6 @@ import com.tasks.model.dao.TaskDAO;
 public class Today extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/faces/today.jsp").include(request, response);
+		request.getRequestDispatcher("/faces/tasks/today.jsp").include(request, response);
 	}
 }

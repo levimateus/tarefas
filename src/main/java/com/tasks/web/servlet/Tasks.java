@@ -10,6 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 public class Tasks extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/faces/tasks.jsp").include(request, response);
+		request.getRequestDispatcher("/faces/tasks/tasks.jsp").include(request, response);
 	}
 }

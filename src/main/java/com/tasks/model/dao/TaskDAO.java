@@ -54,7 +54,10 @@ public class TaskDAO {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tasks");
 		EntityManager manager = factory.createEntityManager();
 		
-		Query query = manager.createQuery("select t from Task as t where t.user = :user");
+		Query query = manager.createQuery("select t from Task as t "
+				+ "where t.user = :user "
+				+ "order by t.taskDate asc");
+		
 		query.setParameter("user", user);
 		
 		List<Task> list = query.getResultList();
@@ -70,7 +73,8 @@ public class TaskDAO {
 				+ "where t.user = :user "
 				+ "AND year(t.taskDate) = year(current_date())"
 				+ "AND month(t.taskDate) = month(current_date())"
-				+ "AND day(t.taskDate) = day(current_date())");
+				+ "AND day(t.taskDate) = day(current_date())"
+				+ "order by t.title asc");
 		
 		query.setParameter("user", user);
 		
