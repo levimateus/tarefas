@@ -88,7 +88,10 @@
 				</a>
 				<div class="collapse list-group-item" style="background-color: #eaeaea" id="collapse-task-${task.id}">
 					${task.description}
-					<a href="delete-task.jsp?id=${task.id}" class="btn btn-danger btn-sm">Excluir</a>
+					<form action="delete-task.jsp" method="POST">
+						<input type="hidden" name="id" value="${task.id}">
+						<input type="submit" value="Excluir" class="btn btn-danger btn-sm">					
+					</form>
 				</div>
 			</c:forEach>
 			

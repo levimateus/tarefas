@@ -97,11 +97,13 @@ public class TaskDAO {
 		return task;
 	}
 
-	public Task delete(Task task) {
+	public Task delete(Integer id) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tasks");
 		EntityManager manager = factory.createEntityManager();
 
 		manager.getTransaction().begin();
+		
+		Task task = manager.find(Task.class, id);
 		manager.remove(task);
 		manager.getTransaction().commit();
 

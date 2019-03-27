@@ -47,6 +47,11 @@
 		<servlet-name>CreateTask</servlet-name>
 		<servlet-class>com.tasks.web.servlet.CreateTask</servlet-class>
 	</servlet>
+	<servlet>
+		<display-name>DeleteTask</display-name>
+		<servlet-name>DeleteTask</servlet-name>
+		<servlet-class>com.tasks.web.servlet.DeleteTask</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>SignUp</servlet-name>
 		<url-pattern>/sign-up.jsp</url-pattern>
@@ -74,6 +79,10 @@
 	<servlet-mapping>
 		<servlet-name>Tasks</servlet-name>
 		<url-pattern>/tasks.jsp</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteTask</servlet-name>
+		<url-pattern>/delete-task.jsp</url-pattern>
 	</servlet-mapping>
 	<session-config>
 		<session-timeout>30</session-timeout>
