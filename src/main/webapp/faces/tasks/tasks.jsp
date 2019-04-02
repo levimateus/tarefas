@@ -82,15 +82,24 @@
 				   data-toggle="collapse"
 				   role="button"
 				   >
-				   <span class="badge badge-success">Entregue</span>
-				   <span class="badge badge-secondary"><fmt:formatDate type="date" value="${task.taskDate.time}" pattern="dd/MM/yyyy" /></span>
-				   &nbsp${task.title}
+					<c:if test="${task.finished}">
+						<span class="badge badge-success">Entregue</span>
+				   	</c:if>
+				   	<span class="badge badge-secondary"><fmt:formatDate type="date" value="${task.taskDate.time}" pattern="dd/MM/yyyy" /></span>
+				   	&nbsp${task.title}
 				</a>
 				<div class="collapse list-group-item" style="background-color: #eaeaea" id="collapse-task-${task.id}">
 					${task.description}
 					<form action="delete-task.jsp" method="POST">
 						<input type="hidden" name="id" value="${task.id}">
-						<input type="submit" value="Excluir" class="btn btn-danger btn-sm">					
+						<input type="submit" value="Excluir" class="btn btn-danger btn-sm">
+						<c:if test="${task.finished}">
+							<input type="hidden" name="open" value="1">
+							<input type="submit" value="Abrir" formaction="close-task.jsp" class="btn btn-success btn-sm">
+						</c:if>
+						<c:if test="${!task.finished}">
+							<input type="submit" value="Fechar" formaction="close-task.jsp" class="btn btn-warning btn-sm">
+						</c:if>	
 					</form>
 				</div>
 			</c:forEach>

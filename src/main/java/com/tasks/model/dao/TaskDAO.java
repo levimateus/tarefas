@@ -27,12 +27,12 @@ public class TaskDAO {
 		return task;
 	}
 
-	public Task getTask(Task task) {
+	public Task getTask(int id) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("tasks");
 		EntityManager manager = factory.createEntityManager();
 
 		manager.getTransaction().begin();
-		manager.find(Task.class, task);
+		Task task = manager.find(Task.class, id);
 		manager.getTransaction().commit();
 
 		manager.close();

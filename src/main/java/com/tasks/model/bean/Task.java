@@ -32,6 +32,8 @@ public class Task implements Serializable{
 	@Lob
 	private String description;
 	
+	private Boolean finished;
+	
 	@CreationTimestamp
 	@Temporal(TemporalType.DATE)
 	private Calendar creationDate;
@@ -97,5 +99,13 @@ public class Task implements Serializable{
 
 	public void setTaskDate(Calendar taskDate) {
 		this.taskDate = taskDate;
+	}
+
+	public Boolean getFinished() {
+		return finished;
+	}
+
+	public void setFinished(Boolean finished) {
+		this.finished = finished;
 	}
 }
