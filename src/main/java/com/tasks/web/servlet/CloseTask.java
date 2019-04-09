@@ -28,6 +28,6 @@ public class CloseTask extends HttpServlet {
 		
 		dao.update(task);
 		
-		request.getRequestDispatcher("/").include(request, response);
+		response.sendRedirect(request.getHeader("referer"));
 	}
 }

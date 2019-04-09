@@ -42,7 +42,7 @@ public class CreateTask extends HttpServlet{
 			
 			dao.save(task);
 			
-			response.sendRedirect("today.jsp");
+			response.sendRedirect(request.getHeader("referer"));
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

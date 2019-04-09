@@ -21,6 +21,6 @@ public class DeleteTask extends HttpServlet{
 		TaskDAO dao = new TaskDAO();
 		dao.delete(id);
 		
-		request.getRequestDispatcher("/").include(request, response);
+		response.sendRedirect(request.getHeader("referer"));
 	}
 }
