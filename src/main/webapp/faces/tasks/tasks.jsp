@@ -74,36 +74,37 @@
 			</div>
 		</div>
 		
-		<div class="list-group my-2 col col-xl-9 col-lg-8 col-md-8">
-			<h4 class="list-group-item text-center">Todas as tarefas</h4>
-			<c:forEach var="task" items="${dao.getListByUser(user)}">
-				<a class="list-group-item list-group-item-action"
-				   href="#collapse-task-${task.id}"
-				   data-toggle="collapse"
-				   role="button"
-				   >
-					<c:if test="${task.finished}">
-						<span class="badge badge-success">Entregue</span>
-				   	</c:if>
-				   	<span class="badge badge-secondary"><fmt:formatDate type="date" value="${task.taskDate.time}" pattern="dd/MM/yyyy" /></span>
-				   	&nbsp${task.title}
-				</a>
-				<div class="collapse list-group-item" style="background-color: #eaeaea" id="collapse-task-${task.id}">
-					${task.description}
-					<form action="delete-task.jsp" method="POST">
-						<input type="hidden" name="id" value="${task.id}">
-						<input type="submit" value="Excluir" class="btn btn-danger btn-sm">
+		<div class="my-2 col col-xl-9 col-lg-8 col-md-8">
+			<div class="list-group">
+				<h4 class="list-group-item text-center">Todas as tarefas</h4>
+				<c:forEach var="task" items="${dao.getListByUser(user)}">
+					<a class="list-group-item list-group-item-action"
+					   href="#collapse-task-${task.id}"
+					   data-toggle="collapse"
+					   role="button"
+					   >
 						<c:if test="${task.finished}">
-							<input type="hidden" name="open" value="1">
-							<input type="submit" value="Abrir" formaction="close-task.jsp" class="btn btn-success btn-sm">
-						</c:if>
-						<c:if test="${!task.finished}">
-							<input type="submit" value="Fechar" formaction="close-task.jsp" class="btn btn-warning btn-sm">
-						</c:if>	
-					</form>
-				</div>
-			</c:forEach>
-			
+							<span class="badge badge-success">Entregue</span>
+					   	</c:if>
+					   	<span class="badge badge-secondary"><fmt:formatDate type="date" value="${task.taskDate.time}" pattern="dd/MM/yyyy" /></span>
+					   	&nbsp${task.title}
+					</a>
+					<div class="collapse list-group-item" style="background-color: #eaeaea" id="collapse-task-${task.id}">
+						${task.description}
+						<form action="delete-task.jsp" method="POST">
+							<input type="hidden" name="id" value="${task.id}">
+							<input type="submit" value="Excluir" class="btn btn-danger btn-sm">
+							<c:if test="${task.finished}">
+								<input type="hidden" name="open" value="1">
+								<input type="submit" value="Abrir" formaction="close-task.jsp" class="btn btn-success btn-sm">
+							</c:if>
+							<c:if test="${!task.finished}">
+								<input type="submit" value="Fechar" formaction="close-task.jsp" class="btn btn-warning btn-sm">
+							</c:if>	
+						</form>
+					</div>
+				</c:forEach>
+			</div>
 			<button type="button" class="list-group-item list-group-item-action active text-center" data-toggle="modal" data-target=".bd-example-modal-lg">+ nova tarefa</button>
 		</div>
 	</div>
