@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<jsp:useBean id="dao" class="com.tasks.model.dao.TaskDAO"  />
+<jsp:useBean id="taskBO" class="com.tasks.model.bo.TaskBO" />
 
 <jsp:include page="/faces/template/header.jsp" />
 <jsp:include page="/faces/template/navbar.jsp" />
@@ -77,12 +77,15 @@
 		<div class="my-2 col col-xl-9 col-lg-8 col-md-8">
 			<div class="list-group">
 				<h4 class="list-group-item text-center">Todas as tarefas</h4>
-				<c:forEach var="task" items="${dao.getListByUser(user)}">
+				<c:forEach var="task" items="${taskBO.getListByUser(user)}">
 					<a class="list-group-item list-group-item-action"
 					   href="#collapse-task-${task.id}"
 					   data-toggle="collapse"
 					   role="button"
 					   >
+					   <c:if test="${taskBO.isLate(task) && !task.finished}">
+					   		<span class="badge badge-danger">Atrasada</span>
+					   	</c:if>
 						<c:if test="${task.finished}">
 							<span class="badge badge-success">Entregue</span>
 					   	</c:if>
